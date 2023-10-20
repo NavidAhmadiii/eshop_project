@@ -1,0 +1,17 @@
+.errorlist {
+    padding-right: 0 !important;
+}
+
+.errorlist li {
+    color: red;
+}
+
+ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-right: 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
