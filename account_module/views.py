@@ -82,7 +82,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         logout(request)
-        return render(reverse('login_page'))
+        return redirect(reverse('login_page'))
 
 
 class ActivateAccountView(View):
