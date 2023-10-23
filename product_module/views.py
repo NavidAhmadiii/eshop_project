@@ -71,6 +71,8 @@ class ProductDetailView(DetailView):
         galleries = list(ProductGallery.objects.filter(product_id=loaded_product.id).all())
         galleries.insert(0, loaded_product)
         context['product_galleries_group'] = group_list(galleries, 3)
+        context['related_products'] = group_list(
+            list(Product.objects.filter(brand_id=loaded_product.brand_id).exclude(pk=loaded_product.id).all()[:12]), 3)
         user_ip = get_client_ip(self.request)
         user_id = None
         if self.request.user.is_authenticated:

@@ -11,11 +11,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                        {#                        <ol class="carousel-indicators">#}
-                        {#                            <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>#}
-                        {#                            <li data-target="#slider-carousel" data-slide-to="1"></li>#}
-                        {#                        </ol>#}
-
                         <div class="carousel-inner">
 
                             {% for slider in sliders %}
@@ -68,10 +63,10 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        {# حالت عادی استفاده از عکس #}
-                                                        {#<img src="{{ product.image.url }}" alt=""/>#}
+                                                         حالت عادی استفاده از عکس
+                                                        <img src="{{ product.image.url }}" alt=""/>
 
-                                                        {# حالت استفاده از پکیج تامبنیل عکس #}
+                                                         حالت استفاده از پکیج تامبنیل عکس
                                                         {% thumbnail product.image "268x250" quality=90 crop="center" as im %}
                                                             <img src="{{ im.url }}" alt="">
                                                         {% endthumbnail %}
@@ -88,6 +83,7 @@
                                             </div>
                                         </div>
                                     {% endfor %}
+
 
                                 </div>
                             {% endfor %}
