@@ -63,10 +63,9 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                         حالت عادی استفاده از عکس
-                                                        <img src="{{ product.image.url }}" alt=""/>
-
-                                                         حالت استفاده از پکیج تامبنیل عکس
+                                                        {#  حالت عادی استفاده از عکس#}
+{#                                                        <img src="{{ product.image.url }}" alt="">#}
+                                                        {# حالت استفاده از پکیج تامبنیل عکس#}
                                                         {% thumbnail product.image "268x250" quality=90 crop="center" as im %}
                                                             <img src="{{ im.url }}" alt="">
                                                         {% endthumbnail %}
@@ -454,7 +453,7 @@
                                                         <p>{{ product.title }}</p>
                                                         <a href="{{ product.get_absolute_url }}"
                                                            class="btn btn-default add-to-cart"><i
-                                                                ></i>نمایش محصول</a>
+                                                        ></i>نمایش محصول</a>
                                                     </div>
 
                                                 </div>

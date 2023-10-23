@@ -45,3 +45,33 @@ function showLargeImage(ImageSrc) {
     $('#main_image').attr('src', ImageSrc);
     $('#show_large_image_modal').attr('href', ImageSrc);
 }
+
+function addProductToOrder(productId) {
+    const productCount = $('#product-count').val();
+    $.get('/order/add-to-order?product_id=' + productId + '&count=' + productId).then(res => {
+        Swal.fire({
+            title: 'اعلان سبد خرید ',
+            text: res.text,
+            icon: res.icon,
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: res.confirm_button_text
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/login'
+            }
+        })
+
+        // if (res.status === 'success') {
+        //     Swal.fire({
+        //         title: 'اعلان سبد خرید ',
+        //         text: "محصول مورد نظر با موفقیت به سبد خرید شما اضافه شد",
+        //         icon: 'success',
+        //         showCancelButton: false,
+        //         confirmButtonColor: '#3085d6',
+        //         confirmButtonText: 'تایید'
+        //     })
+        // }
+    });
+}
+
