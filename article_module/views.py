@@ -1,11 +1,9 @@
-from django.views.generic import DetailView
-
 from article_module.models import Article, ArticleCategory, ArticleComment
-from jalali_date import datetime2jalali, date2jalali
-from django.views.generic.list import ListView
 from django.http import HttpRequest, HttpResponse
+from django.views.generic.list import ListView
+from django.views.generic import DetailView
+from jalali_date import date2jalali
 from django.shortcuts import render
-from django.views import View
 
 
 # Create your views here.

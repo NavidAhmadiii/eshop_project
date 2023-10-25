@@ -1,10 +1,9 @@
-from django.db.models import Count
-
 from site_module.models import SiteSetting, FooterLinkBox, Slider
-from django.views.generic.base import TemplateView
-from django.shortcuts import render, redirect
 from product_module.models import Product, ProductCategory
+from django.views.generic.base import TemplateView
 from utils.convertors import group_list
+from django.shortcuts import render
+from django.db.models import Count
 
 
 class HomeView(TemplateView):

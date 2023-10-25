@@ -1,12 +1,12 @@
 from .models import Product, ProductCategory, ProductBrand, ProductVisit, ProductGallery
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpRequest
-from django.views.generic import TemplateView, DetailView
 from utils.http_service import get_client_ip
+from django.views.generic import DetailView
 from django.views.generic import ListView
 from site_module.models import SiteBanner
-from django.db.models import Count
 from utils.convertors import group_list
+from django.shortcuts import render
+from django.db.models import Count
 
 
 # Create your views here.

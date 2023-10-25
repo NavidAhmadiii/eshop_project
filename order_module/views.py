@@ -1,7 +1,6 @@
+from order_module.models import Order, OrderDetail
 from django.http import HttpRequest, JsonResponse
 from product_module.models import Product
-from order_module.models import Order, OrderDetail
-from django.shortcuts import render
 
 
 # Create your views here.
@@ -11,7 +10,6 @@ def add_product_to_order(request: HttpRequest):
     product_id = int(request.GET.get('product_id'))
     count = int(request.GET.get('count'))
     if count < 1:
-        print(count)
         return JsonResponse({
             'status': 'invalid_count',
             'text': 'مقدار وارد شده معتبر نمی باشد',

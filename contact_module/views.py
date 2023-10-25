@@ -1,5 +1,4 @@
 from django.views.generic.edit import CreateView
-from django.shortcuts import render, redirect
 from site_module.models import SiteSetting
 from .forms import ContactUsModelForm
 
