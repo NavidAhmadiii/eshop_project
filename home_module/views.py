@@ -3,7 +3,7 @@ from product_module.models import Product, ProductCategory
 from django.views.generic.base import TemplateView
 from utils.convertors import group_list
 from django.shortcuts import render
-from django.db.models import Count
+from django.db.models import Count, Sum
 
 
 class HomeView(TemplateView):
@@ -32,6 +32,13 @@ class HomeView(TemplateView):
             categories_products.append(item)
 
         context['categories_products'] = categories_products
+
+        context['most_bought_product'] = categories_products
+        most_bought_product = Product.objects.filter(orderdetail__order__is_paid=True).annotate(order_count=Sum(
+            'orderdetail__count'
+        )).order_by('-order_count')[:12]
+
+        context['most_bought_product'] = group_list(most_bought_product)
         return context
 
 

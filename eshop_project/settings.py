@@ -147,6 +147,10 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
+MERCHANT = ""  # empty
+
+SANDBOX = True
+
 # default settings (optional)
 JALALI_DATE_DEFAULTS = {
     'Strftime': {

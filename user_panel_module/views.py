@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.template.loader import render_to_string
 from order_module.models import Order, OrderDetail
 from django.http import HttpRequest, JsonResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.shortcuts import render, redirect
 from account_module.models import User
 from django.contrib.auth import logout
@@ -73,6 +73,18 @@ class ChangePasswordPage(View):
             'form': form
         }
         return render(request, 'user_panel_module/change_password_page.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class MyShopping(ListView):
+    model = Order
+    template_name = 'user_panel_module/user_shopping.html'
+
+    def get_queryset(self):
+        queryset = super(MyShopping, self).get_queryset()
+        request: HttpRequest = self.request
+        queryset = queryset.filter(user_id=request.user.id, is_paid=True)
+        return queryset
 
 
 @login_required
